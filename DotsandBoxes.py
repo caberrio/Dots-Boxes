@@ -105,258 +105,267 @@ for j in range(0,6):
 
 canvas.pack(fill=BOTH, expand=1)
 
+def paint(x,y,d,dn,pos):
+    global board    
+    if(((x > 80 and x < 100 and y > 100 and y < 160) or (d == 'r' and dn == 1 and pos == 1)) and is_valid_move(data,"r",1,1)):
+        board = make_a_move(data,"r",1,1)            
+        canvas.create_line(90, 100, 90, 160, fill="red", width=10)
+        
+    elif(((x > 80 and x < 100 and y > 180 and y < 240) or (d == 'r' and dn == 2 and pos == 1)) and is_valid_move(data,"r",2,1)):
+        board = make_a_move(data,"r",2,1)            
+        canvas.create_line(90, 180, 90, 240, fill="red", width=10)        
+        
+    elif(((x > 80 and x < 100 and y > 260 and y < 320) or (d == 'r' and dn == 3 and pos == 1)) and is_valid_move(data,"r",3,1)):
+        board = make_a_move(data,"r",3,1)            
+        canvas.create_line(90, 260, 90, 320, fill="red", width=10)
+        
+    elif(((x > 80 and x < 100 and y > 340 and y < 400) or (d == 'r' and dn == 4 and pos == 1)) and is_valid_move(data,"r",4,1)):
+        board = make_a_move(data,"r",4,1)            
+        canvas.create_line(90, 340, 90, 400, fill="red", width=10)
+        
+    elif(((x > 80 and x < 100 and y > 420 and y < 480) or (d == 'r' and dn == 5 and pos == 1)) and is_valid_move(data,"r",5,1)):
+        board = make_a_move(data,"r",5,1)            
+        canvas.create_line(90, 420, 90, 480, fill="red", width=10)
+        
+    elif(((x > 160 and x < 180 and y > 100 and y < 160) or (d == 'r' and dn == 1 and pos == 2)) and is_valid_move(data,"r",1,2)):
+        board = make_a_move(data,"r",1,2)            
+        canvas.create_line(170, 100, 170, 160, fill="red", width=10)
+        
+    elif(((x > 160 and x < 180 and y > 180 and y < 240) or (d == 'r' and dn == 2 and pos == 2)) and is_valid_move(data,"r",2,2)):
+        board = make_a_move(data,"r",2,2)            
+        canvas.create_line(170, 180, 170, 240, fill="red", width=10)
+        
+    elif(((x > 160 and x < 180 and y > 260 and y < 320) or (d == 'r' and dn == 3 and pos == 2)) and is_valid_move(data,"r",3,2)):
+        board = make_a_move(data,"r",3,2)            
+        canvas.create_line(170, 260, 170, 320, fill="red", width=10)
+        
+    elif(((x > 160 and x < 180 and y > 340 and y < 400) or (d == 'r' and dn == 4 and pos == 2)) and is_valid_move(data,"r",4,2)):
+        board = make_a_move(data,"r",4,2)            
+        canvas.create_line(170, 340, 170, 400, fill="red", width=10)
+        
+    elif(((x > 160 and x < 180 and y > 420 and y < 480) or (d == 'r' and dn == 5 and pos == 2)) and is_valid_move(data,"r",5,2)):
+        board = make_a_move(data,"r",5,2)        
+        canvas.create_line(170, 420, 170, 480, fill="red", width=10)
+    
+    elif(((x > 240 and x < 260 and y > 100 and y < 160) or (d == 'r' and dn == 1 and pos == 3)) and is_valid_move(data,"r",1,3)):
+        board = make_a_move(data,"r",1,3)
+        canvas.create_line(250, 100, 250, 160, fill="red", width=10)
+        
+    elif(((x > 240 and x < 260 and y > 180 and y < 240) or (d == 'r' and dn == 2 and pos == 3)) and is_valid_move(data,"r",2,3)):
+        board = make_a_move(data,"r",2,3)
+        canvas.create_line(250, 180, 250, 240, fill="red", width=10)
+        
+    elif(((x > 240 and x < 260 and y > 260 and y < 320) or (d == 'r' and dn == 3 and pos == 3)) and is_valid_move(data,"r",3,3)):
+        board = make_a_move(data,"r",3,3)
+        canvas.create_line(250, 260, 250, 320, fill="red", width=10)
+    
+    elif(((x > 240 and x < 260 and y > 340 and y < 400) or (d == 'r' and dn == 4 and pos == 3)) and is_valid_move(data,"r",4,3)):
+        board = make_a_move(data,"r",4,3)
+        canvas.create_line(250, 340, 250, 400, fill="red", width=10)
+        
+    elif(((x > 240 and x < 260 and y > 420 and y < 480) or (d == 'r' and dn == 5 and pos == 3)) and is_valid_move(data,"r",5,3)):
+        board = make_a_move(data,"r",5,3)
+        canvas.create_line(250, 420, 250, 480, fill="red", width=10)
+        
+    elif(((x > 320 and x < 340 and y > 100 and y < 160) or (d == 'r' and dn == 1 and pos == 4)) and is_valid_move(data,"r",1,4)):
+        board = make_a_move(data,"r",1,4)
+        canvas.create_line(330, 100, 330, 160, fill="red", width=10)
+        
+    elif(((x > 320 and x < 340 and y > 180 and y < 240) or (d == 'r' and dn == 2 and pos == 4)) and is_valid_move(data,"r",2,4)):
+        board = make_a_move(data,"r",2,4)
+        canvas.create_line(330, 180, 330, 240, fill="red", width=10)
+        
+    elif(((x > 320 and x < 340 and y > 260 and y < 320) or (d == 'r' and dn == 3 and pos == 4)) and is_valid_move(data,"r",3,4)):
+        board = make_a_move(data,"r",3,4)
+        canvas.create_line(330, 260, 330, 320, fill="red", width=10)
+        
+    elif(((x > 320 and x < 340 and y > 340 and y < 400) or (d == 'r' and dn == 4 and pos == 4)) and is_valid_move(data,"r",4,4)):
+        board = make_a_move(data,"r",4,4)
+        canvas.create_line(330, 340, 330, 400, fill="red", width=10)
+    
+    elif(((x > 320 and x < 340 and y > 420 and y < 480) or (d == 'r' and dn == 5 and pos == 4)) and is_valid_move(data,"r",5,4)):
+        board = make_a_move(data,"r",5,4)
+        canvas.create_line(330, 420, 330, 480, fill="red", width=10)
+        
+    elif(((x > 400 and x < 420 and y > 100 and y < 160) or (d == 'r' and dn == 1 and pos == 5)) and is_valid_move(data,"r",1,5)):
+        board = make_a_move(data,"r",1,5)
+        canvas.create_line(410, 100, 410, 160, fill="red", width=10)
+        
+    elif(((x > 400 and x < 420 and y > 180 and y < 240) or (d == 'r' and dn == 2 and pos == 5)) and is_valid_move(data,"r",2,5)):
+        board = make_a_move(data,"r",2,5)
+        canvas.create_line(410, 180, 410, 240, fill="red", width=10)
+        
+    elif(((x > 400 and x < 420 and y > 260 and y < 320) or (d == 'r' and dn == 3 and pos == 5)) and is_valid_move(data,"r",3,5)):
+        board = make_a_move(data,"r",3,5)
+        canvas.create_line(410, 260, 410, 320, fill="red", width=10)
+        
+    elif(((x > 400 and x < 420 and y > 340 and y < 400) or (d == 'r' and dn == 4 and pos == 5)) and is_valid_move(data,"r",4,5)):
+        board = make_a_move(data,"r",4,5)
+        canvas.create_line(410, 340, 410, 400, fill="red", width=10)
+        
+    elif(((x > 400 and x < 420 and y > 420 and y < 480) or (d == 'r' and dn == 5 and pos == 5)) and is_valid_move(data,"r",5,5)):
+        board = make_a_move(data,"r",5,5)
+        canvas.create_line(410, 420, 410, 480, fill="red", width=10)
+        
+    elif(((x > 480 and x < 500 and y > 100 and y < 160) or (d == 'r' and dn == 1 and pos == 6)) and is_valid_move(data,"r",1,6)):
+        board = make_a_move(data,"r",1,6)
+        canvas.create_line(490, 100, 490, 160, fill="red", width=10)
+    
+    elif(((x > 480 and x < 500 and y > 180 and y < 240) or (d == 'r' and dn == 2 and pos == 6)) and is_valid_move(data,"r",2,6)):
+        board = make_a_move(data,"r",2,6)
+        canvas.create_line(490, 180, 490, 240, fill="red", width=10)
+    
+    elif(((x > 480 and x < 500 and y > 260 and y < 320) or (d == 'r' and dn == 3 and pos == 6)) and is_valid_move(data,"r",3,6)):
+        board = make_a_move(data,"r",3,6)
+        canvas.create_line(490, 260, 490, 320, fill="red", width=10)
+    
+    elif(((x > 480 and x < 500 and y > 340 and y < 400) or (d == 'r' and dn == 4 and pos == 6)) and is_valid_move(data,"r",4,6)):
+        board = make_a_move(data,"r",4,6)
+        canvas.create_line(490, 340, 490, 400, fill="red", width=10)
+        
+    elif(((x > 480 and x < 500 and y > 420 and y < 480) or (d == 'r' and dn == 5 and pos == 6)) and is_valid_move(data,"r",5,6)):
+        board = make_a_move(data,"r",5,6)
+        canvas.create_line(490, 420, 490, 480, fill="red", width=10)
+        
+    elif(((x > 100 and x < 160 and y > 80 and y < 100) or (d == 'c' and dn == 1 and pos == 1)) and is_valid_move(data,"c",1,1)):
+        board = make_a_move(data,"c",1,1)
+        canvas.create_line(100, 90, 160, 90, fill="red", width=10)
+        
+    elif(((x > 100 and x < 160 and y > 160 and y < 180) or (d == 'c' and dn == 1 and pos == 2)) and is_valid_move(data,"c",1,2)):
+        board = make_a_move(data,"c",1,2)
+        canvas.create_line(100, 170, 160, 170, fill="red", width=10)
+        
+    elif(((x > 100 and x < 160 and y > 240 and y < 260) or (d == 'c' and dn == 1 and pos == 3)) and is_valid_move(data,"c",1,3)):
+        board = make_a_move(data,"c",1,3)
+        canvas.create_line(100, 250, 160, 250, fill="red", width=10)
+        
+    elif(((x > 100 and x < 160 and y > 320 and y < 340) or (d == 'c' and dn == 1 and pos == 4)) and is_valid_move(data,"c",1,4)):
+        board = make_a_move(data,"c",1,4)
+        canvas.create_line(100, 330, 160, 330, fill="red", width=10)
+        
+    elif(((x > 100 and x < 160 and y > 400 and y < 420) or (d == 'c' and dn == 1 and pos == 5)) and is_valid_move(data,"c",1,5)):
+        board = make_a_move(data,"c",1,5)
+        canvas.create_line(100, 410, 160, 410, fill="red", width=10)
+        
+    elif(((x > 100 and x < 160 and y > 480 and y < 500) or (d == 'c' and dn == 1 and pos == 6)) and is_valid_move(data,"c",1,6)):
+        board = make_a_move(data,"c",1,6)
+        canvas.create_line(100, 490, 160, 490, fill="red", width=10)
+        
+    elif(((x > 180 and x < 240 and y > 80 and y < 100) or (d == 'c' and dn == 2 and pos == 1)) and is_valid_move(data,"c",2,1)):
+        board = make_a_move(data,"c",2,1)
+        canvas.create_line(180, 90, 240, 90, fill="red", width=10)
+        
+    elif(((x > 180 and x < 240 and y > 160 and y < 180) or (d == 'c' and dn == 2 and pos == 2)) and is_valid_move(data,"c",2,2)):
+        board = make_a_move(data,"c",2,2)
+        canvas.create_line(180, 170, 240, 170, fill="red", width=10)
+        
+    elif(((x > 180 and x < 240 and y > 240 and y < 260) or (d == 'c' and dn == 2 and pos == 3)) and is_valid_move(data,"c",2,3)):
+        board = make_a_move(data,"c",2,3)
+        canvas.create_line(180, 250, 240, 250, fill="red", width=10)
 
+    elif(((x > 180 and x < 240 and y > 320 and y < 340) or (d == 'c' and dn == 2 and pos == 4)) and is_valid_move(data,"c",2,4)):
+        board = make_a_move(data,"c",2,4)
+        canvas.create_line(180, 330, 240, 330, fill="red", width=10)
+
+    elif(((x > 180 and x < 240 and y > 400 and y < 420) or (d == 'c' and dn == 2 and pos == 5)) and is_valid_move(data,"c",2,5)):
+        board = make_a_move(data,"c",2,5)
+        canvas.create_line(180, 410, 240, 410, fill="red", width=10)
+        
+    elif(((x > 180 and x < 240 and y > 480 and y < 500) or (d == 'c' and dn == 2 and pos == 6)) and is_valid_move(data,"c",2,6)):
+        board = make_a_move(data,"c",2,6)
+        canvas.create_line(180, 490, 240, 490, fill="red", width=10)
+        
+    elif(((x > 260 and x < 320 and y > 80 and y < 100) or (d == 'c' and dn == 3 and pos == 1)) and is_valid_move(data,"c",3,1)):
+        board = make_a_move(data,"c",3,1)
+        canvas.create_line(260, 90, 320, 90, fill="red", width=10)
+        
+    elif(((x > 260 and x < 320 and y > 160 and y < 180) or (d == 'c' and dn == 3 and pos == 2)) and is_valid_move(data,"c",3,2)):
+        board = make_a_move(data,"c",3,2)
+        canvas.create_line(260, 170, 320, 170, fill="red", width=10)
+        
+    elif(((x > 260 and x < 320 and y > 240 and y < 260) or (d == 'c' and dn == 3 and pos == 3)) and is_valid_move(data,"c",3,3)):
+        board = make_a_move(data,"c",3,3)
+        canvas.create_line(260, 250, 320, 250, fill="red", width=10)
+        
+    elif(((x > 260 and x < 320 and y > 320 and y < 340) or (d == 'c' and dn == 3 and pos == 4)) and is_valid_move(data,"c",3,4)):
+        board = make_a_move(data,"c",3,4)
+        canvas.create_line(260, 330, 320, 330, fill="red", width=10)
+        
+    elif(((x > 260 and x < 320 and y > 400 and y < 420) or (d == 'c' and dn == 3 and pos == 5)) and is_valid_move(data,"c",3,5)):
+        board = make_a_move(data,"c",3,5)
+        canvas.create_line(260, 410, 320, 410, fill="red", width=10)
+        
+    elif(((x > 260 and x < 320 and y > 480 and y < 500) or (d == 'c' and dn == 3 and pos == 6)) and is_valid_move(data,"c",3,6)):
+        board = make_a_move(data,"c",3,6)
+        canvas.create_line(260, 490, 320, 490, fill="red", width=10)
+        
+    elif(((x > 340 and x < 400 and y > 80 and y < 100) or (d == 'c' and dn == 4 and pos == 1)) and is_valid_move(data,"c",4,1)):
+        board = make_a_move(data,"c",4,1)
+        canvas.create_line(340, 90, 400, 90, fill="red", width=10)
+        
+    elif(((x > 340 and x < 400 and y > 160 and y < 180) or (d == 'c' and dn == 4 and pos == 2)) and is_valid_move(data,"c",4,2)):
+        board = make_a_move(data,"c",4,2)
+        canvas.create_line(340, 170, 400, 170, fill="red", width=10)
+        
+    elif(((x > 340 and x < 400 and y > 240 and y < 260) or (d == 'c' and dn == 4 and pos == 3)) and is_valid_move(data,"c",4,3)):
+        board = make_a_move(data,"c",4,3)
+        canvas.create_line(340, 250, 400, 250, fill="red", width=10)
+        
+    elif(((x > 340 and x < 400 and y > 320 and y < 340) or (d == 'c' and dn == 4 and pos == 4)) and is_valid_move(data,"c",4,4)):
+        board = make_a_move(data,"c",4,4)
+        canvas.create_line(340, 330, 400, 330, fill="red", width=10)
+    
+    elif(((x > 340 and x < 400 and y > 400 and y < 420) or (d == 'c' and dn == 4 and pos == 5)) and is_valid_move(data,"c",4,5)):
+        board = make_a_move(data,"c",4,5)
+        canvas.create_line(340, 410, 400, 410, fill="red", width=10)
+        
+    elif(((x > 340 and x < 400 and y > 480 and y < 500) or (d == 'c' and dn == 4 and pos == 6)) and is_valid_move(data,"c",4,6)):
+        board = make_a_move(data,"c",4,6)
+        canvas.create_line(340, 490, 400, 490, fill="red", width=10)
+        
+    elif(((x > 420 and x < 480 and y > 80 and y < 100) or (d == 'c' and dn == 5 and pos == 1)) and is_valid_move(data,"c",5,1)):
+        board = make_a_move(data,"c",5,1)
+        canvas.create_line(420, 90, 480, 90, fill="red", width=10)
+        
+    elif(((x > 420 and x < 480 and y > 160 and y < 180) or (d == 'c' and dn == 5 and pos == 2)) and is_valid_move(data,"c",5,2)):
+        board = make_a_move(data,"c",5,2)
+        canvas.create_line(420, 170, 480, 170, fill="red", width=10)
+        
+    elif(((x > 420 and x < 480 and y > 240 and y < 260) or (d == 'c' and dn == 5 and pos == 3)) and is_valid_move(data,"c",5,3)):
+        board = make_a_move(data,"c",5,3)
+        canvas.create_line(420, 250, 480, 250, fill="red", width=10)
+        
+    elif(((x > 420 and x < 480 and y > 320 and y < 340) or (d == 'c' and dn == 5 and pos == 4)) and is_valid_move(data,"c",5,4)):
+        board = make_a_move(data,"c",5,4)
+        canvas.create_line(420, 330, 480, 330, fill="red", width=10)
+        
+    elif(((x > 420 and x < 480 and y > 400 and y < 420) or (d == 'c' and dn == 5 and pos == 5)) and is_valid_move(data,"c",5,5)):
+        board = make_a_move(data,"c",5,5)
+        canvas.create_line(420, 410, 480, 410, fill="red", width=10)
+        
+    elif(((x > 420 and x < 480 and y > 480 and y < 500) or (d == 'c' and dn == 5 and pos == 6)) and is_valid_move(data,"c",5,6)):
+        board = make_a_move(data,"c",5,6)
+        canvas.create_line(420, 490, 480, 490, fill="red", width=10)
+    else:
+        return False
+    return True
 
 def callback(event):
+    global data
     global board
+    global cuadros
     global turno_jugador    
     jugada = True
     print ("clicked at", event.x, event.y)        
     if(turno_jugador):
-        if(event.x > 80 and event.x < 100 and event.y > 100 and event.y < 160 and is_valid_move(data,"r",1,1)):        
-            board = make_a_move(data,"r",1,1)            
-            canvas.create_line(90, 100, 90, 160, fill="red", width=10)        
-            
-        elif(event.x > 80 and event.x < 100 and event.y > 180 and event.y < 240 and is_valid_move(data,"r",2,1)):
-            board = make_a_move(data,"r",2,1)            
-            canvas.create_line(90, 180, 90, 240, fill="red", width=10)        
-            
-        elif(event.x > 80 and event.x < 100 and event.y > 260 and event.y < 320 and is_valid_move(data,"r",3,1)):
-            board = make_a_move(data,"r",3,1)            
-            canvas.create_line(90, 260, 90, 320, fill="red", width=10)
-            
-        elif(event.x > 80 and event.x < 100 and event.y > 340 and event.y < 400 and is_valid_move(data,"r",4,1)):
-            board = make_a_move(data,"r",4,1)            
-            canvas.create_line(90, 340, 90, 400, fill="red", width=10)
-            
-        elif(event.x > 80 and event.x < 100 and event.y > 420 and event.y < 480 and is_valid_move(data,"r",5,1)):
-            board = make_a_move(data,"r",5,1)            
-            canvas.create_line(90, 420, 90, 480, fill="red", width=10)
-            
-        elif(event.x > 160 and event.x < 180 and event.y > 100 and event.y < 160 and is_valid_move(data,"r",1,2)):
-            board = make_a_move(data,"r",1,2)            
-            canvas.create_line(170, 100, 170, 160, fill="red", width=10)
-            
-        elif(event.x > 160 and event.x < 180 and event.y > 180 and event.y < 240 and is_valid_move(data,"r",2,2)):
-            board = make_a_move(data,"r",2,2)            
-            canvas.create_line(170, 180, 170, 240, fill="red", width=10)
-            
-        elif(event.x > 160 and event.x < 180 and event.y > 260 and event.y < 320 and is_valid_move(data,"r",3,2)):
-            board = make_a_move(data,"r",3,2)            
-            canvas.create_line(170, 260, 170, 320, fill="red", width=10)
-            
-        elif(event.x > 160 and event.x < 180 and event.y > 340 and event.y < 400 and is_valid_move(data,"r",4,2)):
-            board = make_a_move(data,"r",4,2)            
-            canvas.create_line(170, 340, 170, 400, fill="red", width=10)
-            
-        elif(event.x > 160 and event.x < 180 and event.y > 420 and event.y < 480 and is_valid_move(data,"r",5,2)):
-            board = make_a_move(data,"r",5,2)        
-            canvas.create_line(170, 420, 170, 480, fill="red", width=10)
-        
-        elif(event.x > 240 and event.x < 260 and event.y > 100 and event.y < 160 and is_valid_move(data,"r",1,3)):
-            board = make_a_move(data,"r",1,3)
-            canvas.create_line(250, 100, 250, 160, fill="red", width=10)
-            
-        elif(event.x > 240 and event.x < 260 and event.y > 180 and event.y < 240 and is_valid_move(data,"r",2,3)):
-            board = make_a_move(data,"r",2,3)
-            canvas.create_line(250, 180, 250, 240, fill="red", width=10)
-            
-        elif(event.x > 240 and event.x < 260 and event.y > 260 and event.y < 320 and is_valid_move(data,"r",3,3)):
-            board = make_a_move(data,"r",3,3)
-            canvas.create_line(250, 260, 250, 320, fill="red", width=10)
-        
-        elif(event.x > 240 and event.x < 260 and event.y > 340 and event.y < 400 and is_valid_move(data,"r",4,3)):
-            board = make_a_move(data,"r",4,3)
-            canvas.create_line(250, 340, 250, 400, fill="red", width=10)
-            
-        elif(event.x > 240 and event.x < 260 and event.y > 420 and event.y < 480 and is_valid_move(data,"r",5,3)):
-            board = make_a_move(data,"r",5,3)
-            canvas.create_line(250, 420, 250, 480, fill="red", width=10)
-            
-        elif(event.x > 320 and event.x < 340 and event.y > 100 and event.y < 160 and is_valid_move(data,"r",1,4)):
-            board = make_a_move(data,"r",1,4)
-            canvas.create_line(330, 100, 330, 160, fill="red", width=10)
-            
-        elif(event.x > 320 and event.x < 340 and event.y > 180 and event.y < 240 and is_valid_move(data,"r",2,4)):
-            board = make_a_move(data,"r",2,4)
-            canvas.create_line(330, 180, 330, 240, fill="red", width=10)
-            
-        elif(event.x > 320 and event.x < 340 and event.y > 260 and event.y < 320 and is_valid_move(data,"r",3,4)):
-            board = make_a_move(data,"r",3,4)
-            canvas.create_line(330, 260, 330, 320, fill="red", width=10)
-            
-        elif(event.x > 320 and event.x < 340 and event.y > 340 and event.y < 400 and is_valid_move(data,"r",4,4)):
-            board = make_a_move(data,"r",4,4)
-            canvas.create_line(330, 340, 330, 400, fill="red", width=10)
-        
-        elif(event.x > 320 and event.x < 340 and event.y > 420 and event.y < 480 and is_valid_move(data,"r",5,4)):
-            board = make_a_move(data,"r",5,4)
-            canvas.create_line(330, 420, 330, 480, fill="red", width=10)
-            
-        elif(event.x > 400 and event.x < 420 and event.y > 100 and event.y < 160 and is_valid_move(data,"r",1,5)):
-            board = make_a_move(data,"r",1,5)
-            canvas.create_line(410, 100, 410, 160, fill="red", width=10)
-            
-        elif(event.x > 400 and event.x < 420 and event.y > 180 and event.y < 240 and is_valid_move(data,"r",2,5)):
-            board = make_a_move(data,"r",2,5)
-            canvas.create_line(410, 180, 410, 240, fill="red", width=10)
-            
-        elif(event.x > 400 and event.x < 420 and event.y > 260 and event.y < 320 and is_valid_move(data,"r",3,5)):
-            board = make_a_move(data,"r",3,5)
-            canvas.create_line(410, 260, 410, 320, fill="red", width=10)
-            
-        elif(event.x > 400 and event.x < 420 and event.y > 340 and event.y < 400 and is_valid_move(data,"r",4,5)):
-            board = make_a_move(data,"r",4,5)
-            canvas.create_line(410, 340, 410, 400, fill="red", width=10)
-            
-        elif(event.x > 400 and event.x < 420 and event.y > 420 and event.y < 480 and is_valid_move(data,"r",5,5)):
-            board = make_a_move(data,"r",5,5)
-            canvas.create_line(410, 420, 410, 480, fill="red", width=10)
-            
-        elif(event.x > 480 and event.x < 500 and event.y > 100 and event.y < 160 and is_valid_move(data,"r",1,6)):
-            board = make_a_move(data,"r",1,6)
-            canvas.create_line(490, 100, 490, 160, fill="red", width=10)
-        
-        elif(event.x > 480 and event.x < 500 and event.y > 180 and event.y < 240 and is_valid_move(data,"r",2,6)):
-            board = make_a_move(data,"r",2,6)
-            canvas.create_line(490, 180, 490, 240, fill="red", width=10)
-        
-        elif(event.x > 480 and event.x < 500 and event.y > 260 and event.y < 320 and is_valid_move(data,"r",3,6)):
-            board = make_a_move(data,"r",3,6)
-            canvas.create_line(490, 260, 490, 320, fill="red", width=10)
-        
-        elif(event.x > 480 and event.x < 500 and event.y > 340 and event.y < 400 and is_valid_move(data,"r",4,6)):
-            board = make_a_move(data,"r",4,6)
-            canvas.create_line(490, 340, 490, 400, fill="red", width=10)
-            
-        elif(event.x > 480 and event.x < 500 and event.y > 420 and event.y < 480 and is_valid_move(data,"r",5,6)):
-            board = make_a_move(data,"r",5,6)
-            canvas.create_line(490, 420, 490, 480, fill="red", width=10)
-            
-        elif(event.x > 100 and event.x < 160 and event.y > 80 and event.y < 100 and is_valid_move(data,"c",1,1)):
-            board = make_a_move(data,"c",1,1)
-            canvas.create_line(100, 90, 160, 90, fill="red", width=10)
-            
-        elif(event.x > 100 and event.x < 160 and event.y > 160 and event.y < 180 and is_valid_move(data,"c",1,2)):        
-            board = make_a_move(data,"c",1,2)
-            canvas.create_line(100, 170, 160, 170, fill="red", width=10)
-            
-        elif(event.x > 100 and event.x < 160 and event.y > 240 and event.y < 260 and is_valid_move(data,"c",1,3)):
-            board = make_a_move(data,"c",1,3)
-            canvas.create_line(100, 250, 160, 250, fill="red", width=10)
-            
-        elif(event.x > 100 and event.x < 160 and event.y > 320 and event.y < 340 and is_valid_move(data,"c",1,4)):
-            board = make_a_move(data,"c",1,4)
-            canvas.create_line(100, 330, 160, 330, fill="red", width=10)
-            
-        elif(event.x > 100 and event.x < 160 and event.y > 400 and event.y < 420 and is_valid_move(data,"c",1,5)):
-            board = make_a_move(data,"c",1,5)
-            canvas.create_line(100, 410, 160, 410, fill="red", width=10)
-            
-        elif(event.x > 100 and event.x < 160 and event.y > 480 and event.y < 500 and is_valid_move(data,"c",1,6)):
-            board = make_a_move(data,"c",1,6)
-            canvas.create_line(100, 490, 160, 490, fill="red", width=10)
-            
-        elif(event.x > 180 and event.x < 240 and event.y > 80 and event.y < 100 and is_valid_move(data,"c",2,1)):
-            board = make_a_move(data,"c",2,1)
-            canvas.create_line(180, 90, 240, 90, fill="red", width=10)
-            
-        elif(event.x > 180 and event.x < 240 and event.y > 160 and event.y < 180 and is_valid_move(data,"c",2,2)):
-            board = make_a_move(data,"c",2,2)
-            canvas.create_line(180, 170, 240, 170, fill="red", width=10)
-            
-        elif(event.x > 180 and event.x < 240 and event.y > 240 and event.y < 260 and is_valid_move(data,"c",2,3)):
-            board = make_a_move(data,"c",2,3)
-            canvas.create_line(180, 250, 240, 250, fill="red", width=10)
-    
-        elif(event.x > 180 and event.x < 240 and event.y > 320 and event.y < 340 and is_valid_move(data,"c",2,4)):
-            board = make_a_move(data,"c",2,4)
-            canvas.create_line(180, 330, 240, 330, fill="red", width=10)
-    
-        elif(event.x > 180 and event.x < 240 and event.y > 400 and event.y < 420 and is_valid_move(data,"c",2,5)):
-            board = make_a_move(data,"c",2,5)
-            canvas.create_line(180, 410, 240, 410, fill="red", width=10)
-            
-        elif(event.x > 180 and event.x < 240 and event.y > 480 and event.y < 500 and is_valid_move(data,"c",2,6)):
-            board = make_a_move(data,"c",2,6)
-            canvas.create_line(180, 490, 240, 490, fill="red", width=10)
-            
-        elif(event.x > 260 and event.x < 320 and event.y > 80 and event.y < 100 and is_valid_move(data,"c",3,1)):
-            board = make_a_move(data,"c",3,1)
-            canvas.create_line(260, 90, 320, 90, fill="red", width=10)
-            
-        elif(event.x > 260 and event.x < 320 and event.y > 160 and event.y < 180 and is_valid_move(data,"c",3,2)):
-            board = make_a_move(data,"c",3,2)
-            canvas.create_line(260, 170, 320, 170, fill="red", width=10)
-            
-        elif(event.x > 260 and event.x < 320 and event.y > 240 and event.y < 260 and is_valid_move(data,"c",3,3)):
-            board = make_a_move(data,"c",3,3)
-            canvas.create_line(260, 250, 320, 250, fill="red", width=10)
-            
-        elif(event.x > 260 and event.x < 320 and event.y > 320 and event.y < 340 and is_valid_move(data,"c",3,4)):
-            board = make_a_move(data,"c",3,4)
-            canvas.create_line(260, 330, 320, 330, fill="red", width=10)
-            
-        elif(event.x > 260 and event.x < 320 and event.y > 400 and event.y < 420 and is_valid_move(data,"c",3,5)):
-            board = make_a_move(data,"c",3,5)
-            canvas.create_line(260, 410, 320, 410, fill="red", width=10)
-            
-        elif(event.x > 260 and event.x < 320 and event.y > 480 and event.y < 500 and is_valid_move(data,"c",3,6)):
-            board = make_a_move(data,"c",3,6)
-            canvas.create_line(260, 490, 320, 490, fill="red", width=10)
-            
-        elif(event.x > 340 and event.x < 400 and event.y > 80 and event.y < 100 and is_valid_move(data,"c",4,1)):
-            board = make_a_move(data,"c",4,1)
-            canvas.create_line(340, 90, 400, 90, fill="red", width=10)
-            
-        elif(event.x > 340 and event.x < 400 and event.y > 160 and event.y < 180 and is_valid_move(data,"c",4,2)):
-            board = make_a_move(data,"c",4,2)
-            canvas.create_line(340, 170, 400, 170, fill="red", width=10)
-            
-        elif(event.x > 340 and event.x < 400 and event.y > 240 and event.y < 260 and is_valid_move(data,"c",4,3)):
-            board = make_a_move(data,"c",4,3)
-            canvas.create_line(340, 250, 400, 250, fill="red", width=10)
-            
-        elif(event.x > 340 and event.x < 400 and event.y > 320 and event.y < 340 and is_valid_move(data,"c",4,4)):
-            board = make_a_move(data,"c",4,4)
-            canvas.create_line(340, 330, 400, 330, fill="red", width=10)
-        
-        elif(event.x > 340 and event.x < 400 and event.y > 400 and event.y < 420 and is_valid_move(data,"c",4,5)):
-            board = make_a_move(data,"c",4,5)
-            canvas.create_line(340, 410, 400, 410, fill="red", width=10)
-            
-        elif(event.x > 340 and event.x < 400 and event.y > 480 and event.y < 500 and is_valid_move(data,"c",4,6)):
-            board = make_a_move(data,"c",4,6)
-            canvas.create_line(340, 490, 400, 490, fill="red", width=10)
-            
-        elif(event.x > 420 and event.x < 480 and event.y > 80 and event.y < 100 and is_valid_move(data,"c",5,1)):
-            board = make_a_move(data,"c",5,1)
-            canvas.create_line(420, 90, 480, 90, fill="red", width=10)
-            
-        elif(event.x > 420 and event.x < 480 and event.y > 160 and event.y < 180 and is_valid_move(data,"c",5,2)):
-            board = make_a_move(data,"c",5,2)
-            canvas.create_line(420, 170, 480, 170, fill="red", width=10)
-            
-        elif(event.x > 420 and event.x < 480 and event.y > 240 and event.y < 260 and is_valid_move(data,"c",5,3)):
-            board = make_a_move(data,"c",5,3)
-            canvas.create_line(420, 250, 480, 250, fill="red", width=10)
-            
-        elif(event.x > 420 and event.x < 480 and event.y > 320 and event.y < 340 and is_valid_move(data,"c",5,4)):
-            board = make_a_move(data,"c",5,4)
-            canvas.create_line(420, 330, 480, 330, fill="red", width=10)
-            
-        elif(event.x > 420 and event.x < 480 and event.y > 400 and event.y < 420 and is_valid_move(data,"c",5,5)):
-            board = make_a_move(data,"c",5,5)
-            canvas.create_line(420, 410, 480, 410, fill="red", width=10)
-            
-        elif(event.x > 420 and event.x < 480 and event.y > 480 and event.y < 500 and is_valid_move(data,"c",5,6)):
-            board = make_a_move(data,"c",5,6)
-            canvas.create_line(420, 490, 480, 490, fill="red", width=10)
-        else:
-            jugada = False
-        if(cuadros == len(heuristic.count_filled_boxes(board.gameboard)) and jugada):            
+        jugada = paint(event.x,event.y,"",0,0)
+        if(cuadros == len(heuristic.count_filled_boxes(board.gameboard)) and jugada):
             turno_jugador = False
-
+            play = (heuristic.first_approach(data, board.gameboard))
+            paint(0,0,play[0],play[1],play[2])
+            turno_jugador = True
+        else:
+            cuadros = len(heuristic.count_filled_boxes(board.gameboard))
 
 canvas.bind("<Button-1>", callback)
 
