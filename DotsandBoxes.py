@@ -50,7 +50,9 @@ class Board(object):
                          [self.data.row5[2],self.data.row5[3],self.data.column3[4],self.data.column3[5]],
                          [self.data.row5[3],self.data.row5[4],self.data.column4[4],self.data.column4[5]],
                          [self.data.row5[4],self.data.row5[5],self.data.column5[4],self.data.column5[5]],]        
-
+        self.painted = [False,False,False,False,False,False,False,False,False,False
+                        ,False,False,False,False,False,False,False,False,False,False
+                        ,False,False,False,False,False]
 
 
 
@@ -86,11 +88,11 @@ def is_valid_move(data,d,dn,pos):
         return not direction[pos-1]
     else:
         direction=getattr(data,'column'+str(dn))
-        return not direction[pos-1] 
+        return not direction[pos-1]
 
 data = RC()
 board = create_board(data)
-cuadros = len(heuristic.count_filled_boxes(board.gameboard))
+boxes = heuristic.count_filled_boxes(board.gameboard)
 turno_jugador = True
 
 #LOGIC
@@ -350,22 +352,207 @@ def paint(x,y,d,dn,pos):
         return False
     return True
 
+def paint_box(boxes,painted,jugador):    
+    for box in boxes:
+        if(not painted[box]):
+            if(box==0):                
+                if(jugador):
+                    canvas.create_rectangle(100, 100, 160, 160, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(100, 100, 160, 160, 
+                outline="yellow", fill="yellow")
+            if(box==1):
+                if(jugador):
+                    canvas.create_rectangle(180, 100, 240, 160, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(180, 100, 240, 160, 
+                outline="yellow", fill="yellow")
+            if(box==2):
+                if(jugador):
+                    canvas.create_rectangle(260, 100, 320, 160, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(260, 100, 320, 160, 
+                outline="yellow", fill="yellow")
+            if(box==3):
+                if(jugador):
+                    canvas.create_rectangle(340, 100, 400, 160, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(340, 100, 400, 160, 
+                outline="yellow", fill="yellow")
+            if(box==4):
+                if(jugador):
+                    canvas.create_rectangle(420, 100, 480, 160, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(420, 100, 480, 160, 
+                outline="yellow", fill="yellow")
+            if(box==5):
+                if(jugador):
+                    canvas.create_rectangle(100, 180, 160, 240,
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(100, 180, 160, 240,
+                outline="yellow", fill="yellow")
+            if(box==6):
+                if(jugador):
+                    canvas.create_rectangle(180, 180, 240, 240, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(180, 180, 240, 240, 
+                outline="yellow", fill="yellow")
+            if(box==7):
+                if(jugador):
+                    canvas.create_rectangle(260, 180, 320, 240, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(260, 180, 320, 240, 
+                outline="yellow", fill="yellow")
+            if(box==8):
+                if(jugador):
+                    canvas.create_rectangle(340, 180, 400, 240, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(340, 180, 400, 240, 
+                outline="yellow", fill="yellow")
+            if(box==9):
+                if(jugador):
+                    canvas.create_rectangle(420, 180, 480, 240,
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(420, 180, 480, 240, 
+                outline="yellow", fill="yellow")
+            if(box==10):
+                if(jugador):
+                    canvas.create_rectangle(100, 260, 160, 320,
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(100, 260, 160, 320, 
+                outline="yellow", fill="yellow")
+            if(box==11):
+                if(jugador):
+                    canvas.create_rectangle(180, 260, 240, 320, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(180, 260, 240, 320, 
+                outline="yellow", fill="yellow")
+            if(box==12):
+                if(jugador):
+                    canvas.create_rectangle(260, 260, 320, 320, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(260, 260, 320, 320, 
+                outline="yellow", fill="yellow")
+            if(box==13):
+                if(jugador):
+                    canvas.create_rectangle(340, 260, 400, 320, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(340, 260, 400, 320,
+                outline="yellow", fill="yellow")
+            if(box==14):
+                if(jugador):
+                    canvas.create_rectangle(420, 260, 480, 320, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(420, 260, 480, 320, 
+                outline="yellow", fill="yellow")
+            if(box==15):
+                if(jugador):
+                    canvas.create_rectangle(100, 340, 160, 400, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(100, 340, 160, 400, 
+                outline="yellow", fill="yellow")
+            if(box==16):
+                if(jugador):
+                    canvas.create_rectangle(180, 340, 240, 400, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(180, 340, 240, 400, 
+                outline="yellow", fill="yellow")
+            if(box==17):
+                if(jugador):
+                    canvas.create_rectangle(260, 340, 320, 400, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(260, 340, 320, 400, 
+                outline="yellow", fill="yellow")
+            if(box==18):
+                if(jugador):
+                    canvas.create_rectangle(340, 340, 400, 400, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(340, 340, 400, 400, 
+                outline="yellow", fill="yellow")
+            if(box==19):
+                if(jugador):
+                    canvas.create_rectangle(420, 340, 480, 400, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(420, 340, 480, 400, 
+                outline="yellow", fill="yellow")
+            if(box==20):
+                if(jugador):
+                    canvas.create_rectangle(100, 420, 160, 480, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(100, 420, 160, 480, 
+                outline="yellow", fill="yellow")
+            if(box==21):
+                if(jugador):
+                    canvas.create_rectangle(180, 420, 240, 480, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(180, 420, 240, 480, 
+                outline="yellow", fill="yellow")
+            if(box==22):
+                if(jugador):
+                    canvas.create_rectangle(260, 420, 320, 480, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(260, 420, 320, 480, 
+                outline="yellow", fill="yellow")
+            if(box==23):
+                if(jugador):
+                    canvas.create_rectangle(340, 420, 400, 480, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(340, 420, 400, 480, 
+                outline="yellow", fill="yellow")
+            if(box==24):
+                if(jugador):
+                    canvas.create_rectangle(420, 420, 480, 480, 
+                outline="green", fill="green")
+                else:
+                    canvas.create_rectangle(420, 420, 480, 480, 
+                outline="yellow", fill="yellow")
+                    
 def callback(event):
     global data
     global board
-    global cuadros
+    global boxes
     global turno_jugador    
     jugada = True
     print ("clicked at", event.x, event.y)        
     if(turno_jugador):
         jugada = paint(event.x,event.y,"",0,0)
-        if(cuadros == len(heuristic.count_filled_boxes(board.gameboard)) and jugada):
+        if(boxes == heuristic.count_filled_boxes(board.gameboard) and jugada):
             turno_jugador = False
             play = (heuristic.first_approach(data, board.gameboard))
             paint(0,0,play[0],play[1],play[2])
+            while(boxes != heuristic.count_filled_boxes(board.gameboard)):
+                boxes = heuristic.count_filled_boxes(board.gameboard)
+                paint_box(boxes,board.painted,False)
+                play = (heuristic.first_approach(data, board.gameboard))
+                paint(0,0,play[0],play[1],play[2])                
             turno_jugador = True
         else:
-            cuadros = len(heuristic.count_filled_boxes(board.gameboard))
+            boxes = heuristic.count_filled_boxes(board.gameboard)
+            paint_box(boxes,board.painted,True)            
 
 canvas.bind("<Button-1>", callback)
 
