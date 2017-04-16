@@ -50,9 +50,7 @@ class Board(object):
                          [self.data.row5[2],self.data.row5[3],self.data.column3[4],self.data.column3[5]],
                          [self.data.row5[3],self.data.row5[4],self.data.column4[4],self.data.column4[5]],
                          [self.data.row5[4],self.data.row5[5],self.data.column5[4],self.data.column5[5]],]        
-        self.painted = [False,False,False,False,False,False,False,False,False,False
-                        ,False,False,False,False,False,False,False,False,False,False
-                        ,False,False,False,False,False]
+        
 
 
 
@@ -64,7 +62,7 @@ def create_board(*state):
         return Board(data)
     
 def update_board(state):
-    print('Change')
+    #print('Change')
     return Board(state)
 
 
@@ -92,6 +90,8 @@ def is_valid_move(data,d,dn,pos):
 
 data = RC()
 board = create_board(data)
+painted = [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,
+           False,False,False,False,False,False,False,False,False]
 boxes = heuristic.count_filled_boxes(board.gameboard)
 turno_jugador = True
 
@@ -108,7 +108,7 @@ for j in range(0,6):
 canvas.pack(fill=BOTH, expand=1)
 
 def paint(x,y,d,dn,pos):
-    global board    
+    global board
     if(((x > 80 and x < 100 and y > 100 and y < 160) or (d == 'r' and dn == 1 and pos == 1)) and is_valid_move(data,"r",1,1)):
         board = make_a_move(data,"r",1,1)            
         canvas.create_line(90, 100, 90, 160, fill="red", width=10)
@@ -507,52 +507,61 @@ def paint_box(boxes,painted,jugador):
                     canvas.create_rectangle(180, 420, 240, 480, 
                 outline="green", fill="green")
                 else:
-                    canvas.create_rectangle(180, 420, 240, 480, 
+                    canvas.create_rectangle(180, 420, 240, 480,
                 outline="yellow", fill="yellow")
             if(box==22):
                 if(jugador):
-                    canvas.create_rectangle(260, 420, 320, 480, 
+                    canvas.create_rectangle(260, 420, 320, 480,
                 outline="green", fill="green")
                 else:
-                    canvas.create_rectangle(260, 420, 320, 480, 
+                    canvas.create_rectangle(260, 420, 320, 480,
                 outline="yellow", fill="yellow")
             if(box==23):
                 if(jugador):
-                    canvas.create_rectangle(340, 420, 400, 480, 
+                    canvas.create_rectangle(340, 420, 400, 480,
                 outline="green", fill="green")
                 else:
-                    canvas.create_rectangle(340, 420, 400, 480, 
+                    canvas.create_rectangle(340, 420, 400, 480,
                 outline="yellow", fill="yellow")
             if(box==24):
                 if(jugador):
-                    canvas.create_rectangle(420, 420, 480, 480, 
+                    canvas.create_rectangle(420, 420, 480, 480,
                 outline="green", fill="green")
                 else:
-                    canvas.create_rectangle(420, 420, 480, 480, 
+                    canvas.create_rectangle(420, 420, 480, 480,
                 outline="yellow", fill="yellow")
+            painted[box] = True
+    return painted
                     
 def callback(event):
     global data
     global board
     global boxes
+    global painted
     global turno_jugador    
     jugada = True
     print ("clicked at", event.x, event.y)        
     if(turno_jugador):
         jugada = paint(event.x,event.y,"",0,0)
-        if(boxes == heuristic.count_filled_boxes(board.gameboard) and jugada):
+        if(boxes == heuristic.count_filled_boxes(board.gameboard) and jugada and len(boxes)<25):
             turno_jugador = False
-            play = (heuristic.first_approach(data, board.gameboard))
+            play = heuristic.first_approach(data,board.gameboard)
+            print (play)
             paint(0,0,play[0],play[1],play[2])
-            while(boxes != heuristic.count_filled_boxes(board.gameboard)):
+            while(boxes != heuristic.count_filled_boxes(board.gameboard) and len(boxes)<24):
                 boxes = heuristic.count_filled_boxes(board.gameboard)
-                paint_box(boxes,board.painted,False)
-                play = (heuristic.first_approach(data, board.gameboard))
-                paint(0,0,play[0],play[1],play[2])                
+                painted = paint_box(boxes,painted,False)
+                play = heuristic.first_approach(data,board.gameboard)
+                print (play)
+                paint(0,0,play[0],play[1],play[2])
+                painted = paint_box(boxes,painted,False)
+                print(boxes)
+            if(len(boxes)==25):
+                painted = paint_box(boxes,painted,False)
             turno_jugador = True
         else:
             boxes = heuristic.count_filled_boxes(board.gameboard)
-            paint_box(boxes,board.painted,True)            
+            painted = paint_box(boxes,painted,True)            
 
 canvas.bind("<Button-1>", callback)
 
