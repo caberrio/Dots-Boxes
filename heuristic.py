@@ -1,5 +1,3 @@
-
-
 def available_moves(datas):
     columns=[datas.column1,datas.column2,datas.column3,datas.column4,datas.column5]
     available_cols = [abs(6-sum(b)) for b in columns]
@@ -29,22 +27,43 @@ def numthree(gameboard):
     return almost 
 
 ""
-def alphaBeta(self, board, alpha, beta, deep):
+def alphaBeta(data, board, alpha, beta, deep,numbox):
         """ Implements a minimax algorithm with alpha-beta pruning. """
         if deep == 0:
-            return self.positionEvaluation(board, player)
+            return heuristic_value1(board, data,numbox)
+        
+        datacopy=copy.deepcopy(data)
+        boardcopy=copy.deepcopy(board)
+        cf=count_filled_boxes(board)
+        for i in range(1,6):
+                for j in range(1,7):
+                    if(dots.is_valid_move(datacopy,'r',i,j)):
+                        board =dots.make_a_move(datacopy,'r',i,j)
+                        if(cf<count_filled_boxes(board.gameboard)):
+                            deep=deep+1
+                        if(count_filled_boxes==25):
+                            deep=1
+                        current_eval = -alphaBeta(datacopy, board.gameboard, float('-infinity'), alpha, deep - 1,numbox)
+                        datacopy=copy.deepcopy(data)
 
-        move_list = board.generateMoves(rules, player)
-        for move in move_list:
-            board.makeMove(move, player)
-            current_eval = -self.alphaBeta(board, rules, -beta, -alpha, deep - 1)
-            board.unmakeMove(move, player)
+                        if current_eval >= beta:
+                            return beta
+            
+                        if current_eval > alpha:
+                            alpha = current_eval
+                            
+        for i in range(1,6):
+            for j in range(1,7):
+                if(dots.is_valid_move(datacopy,'c',i,j)):
+                    board =dots.make_a_move(datacopy,'c',i,j)
+                    current_eval = -alphaBeta(data, board.gameboard, float('-infinity'), alpha, deep - 1,numbox)
+                    datacopy=copy.deepcopy(data)
 
-            if current_eval >= beta:
-                return beta
-
-            if current_eval > alpha:
-                alpha = current_eval
+                    if current_eval >= beta:
+                        return beta
+        
+                    if current_eval > alpha:
+                        alpha = current_eval
 
         return alpha
 
@@ -54,19 +73,29 @@ def rootAlphaBeta(board, data, deep):
     max_eval = float('-infinity')
     datacopy=copy.deepcopy(data)
     boardcopy=copy.deepcopy(board)
-
+    numbox=count_filled_boxes(board)
     alpha = float('infinity')
     for i in range(1,6):
         for j in range(1,7):
             if(dots.is_valid_move(datacopy,'r',i,j)):
                 board =dots.make_a_move(datacopy,'r',i,j)
-                alpha = -alphaBeta(board, rules, float('-infinity'), alpha, deep - 1, board.getOtherPlayer(player))
-                board.unmakeMove(move, player)
+                alpha = alphaBeta(datacopy, board.gameboard, float('-infinity'), alpha, deep - 1,numbox)
+                datacopy=copy.deepcopy(data)
     
                 if alpha > max_eval:
                     max_eval = alpha
-                    best_move = move
-
+                    best_move = ['r',i,j]
+    datacopy=copy.deepcopy(data)               
+    for i in range(1,6):
+        for j in range(1,7):
+            if(dots.is_valid_move(datacopy,'c',i,j)):
+                board =dots.make_a_move(datacopy,'c',i,j)
+                alpha = alphaBeta(data, board.gameboard, float('-infinity'), alpha, deep - 1,numbox)
+                datacopy=copy.deepcopy(data)
+    
+                if alpha > max_eval:
+                    max_eval = alpha
+                    best_move = ['c',i,j]
     return best_move
 ""
 """ def alpha_beta_prunning1(datas,gameboard):
@@ -97,13 +126,10 @@ def first_approach(datas,gameboard):
     i=0
     cont=0
     while 20:
-        
         a=randint(1,5)
         b=randint(1,6)
         c=randint(0,1)
-        
         if(len(num3)>0):
-            print("ohshit")
             datacopy=copy.deepcopy(datas)
             if(gameboard[num3[0]].index(False)<2):
                 d='r'
@@ -138,14 +164,16 @@ def first_approach(datas,gameboard):
     datacopy=copy.deepcopy(datas)    
     return move
     
-def heuristic_value1(gameboard,datas):
+def heuristic_value1(gameboard,datas,boxes):
     states=board_states(gameboard)
-    k=0
-    if(len(count_filled_boxes(gameboard))>0):
-        k=100
+    k=5
     c=10
+    if(boxes<count_filled_boxes(gameboard)):
+        k=(abs(k)+10)*len(count_filled_boxes(gameboard))
+    if(len(numthree(gameboard))>0):
+        k=k-50
     h=[x*c for x in states]
-    return (1/(sum(h)/board_available(gameboard))+k)
+    return (1/(sum(h)+0.1)*board_available(gameboard)+k)*randint(1,6)
     
 import dots
 import copy
